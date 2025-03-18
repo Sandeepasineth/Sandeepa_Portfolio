@@ -68,16 +68,16 @@ const skillsData = [
             { name: "R (80%)", level: 80, icon: "fa-r-project" },
             { name: "SQL (75%)", level: 75, icon: "fa-database" },
             { name: "HTML (90%)", level: 90, icon: "fa fa-html5" },
-            { name: "CSS (85)", level: 85, icon: "fa-css3" }
+            { name: "CSS (85%)", level: 85, icon: "fa-css3" }
         ]
     },
     {
         category: "Frameworks & Tools",
         skills: [
-            { name: "TensorFlow", level: 85, icon: "fa fa-brain" },
-            { name: "PyTorch", level: 80, icon: "fa-fire" },
-            { name: "Scikit-learn", level: 90, icon: "fa-cogs" },
-            { name: "Docker", level: 75, icon: "fa-docker" }
+            { name: "TensorFlow (85%)", level: 85, icon: "fa fa-brain" },
+            { name: "PyTorch (80%)", level: 80, icon: "fa-fire" },
+            { name: "Scikit-learn (90%)", level: 90, icon: "fa-cogs" },
+            { name: "Docker (75%)", level: 75, icon: "fa-docker" }
         ]
     }
 ];
