@@ -1,307 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader"></div>
-    </div>
+// Initialize AOS (Animate On Scroll)
+AOS.init({
+    duration: 1000,
+    easing: 'ease',
+    once: true
+});
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <a href="#home">Portfolio</a>
-                </div>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+// Project Data
+const projectsData = [
+    {
+        id: 1,
+        title: "Car Price Prediction",
+        category: "ml",
+        image: "Projects\\car price prediction.png",
+        description: "Machine learning model to predict Used Car Price with 0.95 of R^2 Score.",
+        technologies: ["Python, ", "Seaborn, ", "Scikit-learn"],
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 2,
+        title: "Olympic Dashboard",
+        category: "visualization",
+        image: "Projects\\olympic.jpg",
+        description: "Interactive dashboard for Olympic Games analysis 2000 - 2016",
+        technologies: ["SQL, ", "PowerBI"],
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 3,
+        title: "Iris Flower Classification",
+        category: "ml",
+        image: "Projects\\iris flower classification.jpg",
+        description: "Machine learning model to predict type of iris folower with 100% accuracy.",
+        technologies: ["Python", "K-means", "Matplotlib"],
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 4,
+        title: "Crimes Dashboard",
+        category: "visualization",
+        image: "Projects\\Dashboard.PNG",
+        description: "Interactive dashboard for Crimes in metropoliton police Area",
+        technologies: [ "SQL, ", "Power BI"],
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 5,
+        title: "Sales Prediction Model",
+        category: "ml",
+        image: "Projects\\sales prediction.jfif",
+        description: "Machine learning model to predict with 1.00 of Root Mean Squared Error.",
+        technologies: [ "SQL, ", "Power BI"],
+        github: "#",
+        demo: "#"
+    }
+];
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-text">
-                    <h1>Sandeepa Sineth</h1>
-                    <h2>Passionate about Data Science </h2>
-                    <p>Transforming complex data into meaningful insights</p>
-                    <div class="hero-buttons">
-                        <a href="Files\CV.pdf" class="btn btn-primary" target="_blank">Download CV</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    </div>
+// Skills Data
+const skillsData = [
+    {
+        category: "Languages",
+        skills: [
+            { name: "Python (90%)", level: 90, icon: "fa-python" },
+            { name: "R (80%)", level: 80, icon: "fa-r-project" },
+            { name: "SQL (75%)", level: 75, icon: "fa-database" },
+            { name: "HTML (90%)", level: 90, icon: "fa fa-html5" },
+            { name: "CSS (85)", level: 85, icon: "fa-css3" }
+        ]
+    },
+    {
+        category: "Frameworks & Tools",
+        skills: [
+            { name: "TensorFlow", level: 85, icon: "fa fa-brain" },
+            { name: "PyTorch", level: 80, icon: "fa-fire" },
+            { name: "Scikit-learn", level: 90, icon: "fa-cogs" },
+            { name: "Docker", level: 75, icon: "fa-docker" }
+        ]
+    }
+];
+
+// DOM Elements
+const preloader = document.querySelector('.preloader');
+const header = document.querySelector('.header');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+const projectsGrid = document.querySelector('.projects-grid');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const skillsContent = document.querySelector('.skills-content');
+const contactForm = document.getElementById('contactForm');
+const scrollTopBtn = document.getElementById('scrollToTop');
+
+// Preloader
+window.addEventListener('load', () => {
+    preloader.style.opacity = '0';
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 300);
+});
+
+// Header Scroll Effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Mobile Navigation
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+});
+
+// Close mobile menu when clicking links
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    });
+});
+
+// Active Navigation Link
+function updateActiveLink() {
+    const sections = document.querySelectorAll('section');
+    const scrollPosition = window.scrollY;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+
+// Project Filtering and Rendering
+function renderProjects(category = 'all') {
+    const filteredProjects = category === 'all' 
+        ? projectsData 
+        : projectsData.filter(project => project.category === category);
+
+    projectsGrid.innerHTML = filteredProjects.map(project => `
+        <div class="project-card" data-aos="fade-up">
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
+            <div class="project-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-technologies">
+                    ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
                 </div>
-                <div class="hero-image">
-                    <img src="Images\img1.jpeg" alt="Profile Image">
+                <div class="project-links">
+                    <a href="${project.github}" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                    <a href="${project.demo}" class="btn btn-secondary">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="hero-shape"></div>
-    </section>
-    <section class="background_animation">
-        <div class="bubbles-container">
-            <div class="bubbles">
-                <span style='--i:11;'></span>
-                <span style='--i:10;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:05;'></span>
-                <span style='--i:25;'></span>
-                <span style='--i:30;'></span>
-                <span style='--i:06;'></span>
-                <span style='--i:13;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:17;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:01;'></span>
-                <span style='--i:24;'></span>
-                <span style='--i:16;'></span>
-                <span style='--i:19;'></span>
-                <span style='--i:07;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:12;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:11;'></span>
-                <span style='--i:10;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:05;'></span>
-                <span style='--i:25;'></span>
-                <span style='--i:30;'></span>
-                <span style='--i:06;'></span>
-                <span style='--i:13;'></span>
-                <span style='--i:24;'></span>
-                <span style='--i:16;'></span>
-                <span style='--i:19;'></span>
-                <span style='--i:07;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:12;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:11;'></span>
-            </div>
-        </div>
-    </section>
+    `).join('');
+}
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>About Me</h2>
-                <br>
-            </div>
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right">
-                    <img src="Images/img.jpeg" alt="About Image">
-                </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Undergraduate at KDU</h3>
-                    <p>As a data science undergraduate at <span class="uni">General Sir John Kotelawala Defence University</span>, I was learning to develop machine learning models and extract data-driven insights to support decision-making. My focus includes predictive modeling, statistical analysis, and data visualization.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-text">Projects Completed</span>
+// Initialize Projects
+renderProjects();
+
+// Project Filter Buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-filter');
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        renderProjects(category);
+    });
+});
+
+// Render Skills
+function renderSkills() {
+    skillsContent.innerHTML = skillsData.map(category => `
+        <div class="skills-category" data-aos="fade-up">
+            <h3>${category.category}</h3>
+            <div class="skills-grid">
+                ${category.skills.map(skill => `
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab ${skill.icon}"></i>
                         </div>
-                        
-                        <div class="stat">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-text">Awards Won</span>
+                        <h4>${skill.name}</h4>
+                        <div class="skill-progress">
+                            <div class="progress" style="width: ${skill.level}%"></div>
                         </div>
                     </div>
-                </div>
+                `).join('')}
             </div>
         </div>
-    </section>
+    `).join('');
+}
 
-    <!-- Education Section -->  
-    <section id="education" class="education">
-        <h2 class="section-header">Education Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <h3>Grade 01 - 05</h3>
-                    <p>Kengalla Primery School</p>
-                    <span>2007 - 2011</span>
-                </div>
-            </div>
-            <div class="timeline-item right" data-aos="fade-left">
-                <div class="timeline-content">
-                    <h3>Upto Advanced Level (Technology Stream)</h3>
-                    <p>Walala A Rathnayake Central Collage</p>
-                    <span>2012 - 2021</span>
-                </div>
-            </div>
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <h3>Certificate Course in English</h3>
-                    <p>Kekirawa English Academy</p>
-                    <span>2019</span>
-                </div>
-            </div>
-            <div class="timeline-item right" data-aos="fade-left">
-                <div class="timeline-content">
-                    <h3>BSc in Applied Data Science and Communication</h3>
-                    <p>General Sir John Kotelawala Defence University</p>
-                    <span>2023 - 2025</span>
-                </div>
-            </div>
-        </div>
-    </section>
+// Initialize Skills
+renderSkills();
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Selected Projects</h2>
-                <p>Showcasing my some work</p>
-            </div>
+// Contact Form
+emailjs.init("SEVedpIL7fWY6GhRU");
 
-            <div class="projects-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ml">Machine Learning</button>
-                <button class="filter-btn" data-filter="python">Python</button>
-                <button class="filter-btn" data-filter="visualization">Visualization</button>
-            </div>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-            <div class="projects-grid">
-                <!-- Project Cards will be dynamically added via JavaScript -->
-            </div>
-        </div>
-    </section>
+    // Collect form data
+    let templateParams = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+   
+    };
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Technical Skills</h2>
-                <p>My technical expertise</p>
-            </div>
-            <div class="skills-content">
-                <div class="skills-category" data-aos="fade-up">
-                    <h3>Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-python"></i>
-                            </div>
-                            <h4>Python</h4>
-                            <div class="skill-progress">
-                                <div class="progress" data-progress="95"></div>
-                            </div>
-                        </div>
-                        <!-- More skill items will be added via JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    // Send email via EmailJS
+    emailjs.send("service_thhg8v6", "template_ivbmemh", templateParams)
+    .then(function(response) {
+        console.log("Email sent successfully!", response);
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Get in Touch</h2>
-                <p>Let's work together</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>Sandeepasinet@gmail.com<br>40-adc-0030@kdu.ac.lk</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>+94 78 114 9827 <br>+94 76 073 2714</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>No: 6/3,<br>Aswalapitiya, <br>Kengalla, <br>Kandy, Sri Lanka</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" required>
-                            <label for="subject">Subject</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="3" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <center><button type="submit" class="submit">Send Message</button></center>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Change button text to success message
+        const submitBtn = document.querySelector(".submit");
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        submitBtn.disabled = true;
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Portfolio</h3>
-                    <p>Creating impact through data</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#education">Education</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sandeepa Sineth. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        // Reset form after a short delay
+        setTimeout(() => {
+            submitBtn.innerHTML = "Send Message";
+            submitBtn.disabled = false;
+            document.getElementById("contactForm").reset();
+        }, 3000);
+        
+    }, function(error) {
+        console.error("Failed to send email:", error);
+        alert("Error sending your message. Please try again.");
+    });
+});
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+// Scroll to Top Button
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('active');
+    } else {
+        scrollTopBtn.classList.remove('active');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Reveal animations on scroll
+function reveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', reveal);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Initialize tooltips
+const tooltips = document.querySelectorAll('[data-tooltip]');
+tooltips.forEach(tooltip => {
+    tooltip.addEventListener('mouseenter', e => {
+        const tip = document.createElement('div');
+        tip.className = 'tooltip';
+        tip.textContent = e.target.dataset.tooltip;
+        document.body.appendChild(tip);
+        
+        const rect = e.target.getBoundingClientRect();
+        tip.style.top = rect.top - tip.offsetHeight - 10 + 'px';
+        tip.style.left = rect.left + (rect.width - tip.offsetWidth) / 2 + 'px';
+    });
+    
+    tooltip.addEventListener('mouseleave', () => {
+        const tip = document.querySelector('.tooltip');
+        if (tip) {
+            tip.remove();
+        }
+    });
+});
