@@ -11,17 +11,17 @@ const projectsData = [
         id: 1,
         title: "Car Price Prediction",
         category: "ml",
-        image: "Projects\\car price prediction.png",
+        image: "Projects/car price prediction.png",
         description: "Machine learning model to predict Used Car Price with 0.95 of R^2 Score.",
         technologies: ["Python, ", "Seaborn, ", "Scikit-learn"],
-        github: "#",
-        demo: "#"
+        github: "https://github.com/Sandeepasineth/Car_Price_Prediction/blob/main/Car_Price_Prediction_Model.ipynb",
+        Linkedin: "https://www.linkedin.com/posts/sandeepa-sineth-186213288_codealpha-internship-python-activity-7290250604495388673-SrZZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEXMfjYBIasqnVaKha5PgczTOXxh9VPX03s"
     },
     {
         id: 2,
         title: "Olympic Dashboard",
         category: "visualization",
-        image: "Projects\\olympic.jpg",
+        image: "Projects/olympic.jpg",
         description: "Interactive dashboard for Olympic Games analysis 2000 - 2016",
         technologies: ["SQL, ", "PowerBI"],
         github: "#",
@@ -31,9 +31,9 @@ const projectsData = [
         id: 3,
         title: "Iris Flower Classification",
         category: "ml",
-        image: "Projects\\iris flower classification.jpg",
+        image: "Projects/iris flower classification.jpg",
         description: "Machine learning model to predict type of iris folower with 100% accuracy.",
-        technologies: ["Python", "K-means", "Matplotlib"],
+        technologies: ["Python, ", "K-means, ", "Matplotlib"],
         github: "#",
         demo: "#"
     },
@@ -41,7 +41,7 @@ const projectsData = [
         id: 4,
         title: "Crimes Dashboard",
         category: "visualization",
-        image: "Projects\\Dashboard.PNG",
+        image: "Projects/Dashboard.PNG",
         description: "Interactive dashboard for Crimes in metropoliton police Area",
         technologies: [ "SQL, ", "Power BI"],
         github: "#",
@@ -51,7 +51,17 @@ const projectsData = [
         id: 5,
         title: "Sales Prediction Model",
         category: "ml",
-        image: "Projects\\sales prediction.jfif",
+        image: "Projects/sales prediction.jfif",
+        description: "Machine learning model to predict with 1.00 of Root Mean Squared Error.",
+        technologies: [ "SQL, ", "Power BI"],
+        github: "#",
+        demo: "#"
+    },
+    {
+        id: 6,
+        title: "Sales Prediction Model",
+        category: "ml",
+        image: "Projects/sales prediction.jfif",
         description: "Machine learning model to predict with 1.00 of Root Mean Squared Error.",
         technologies: [ "SQL, ", "Power BI"],
         github: "#",
@@ -68,16 +78,23 @@ const skillsData = [
             { name: "R (80%)", level: 80, icon: "fa-r-project" },
             { name: "SQL (75%)", level: 75, icon: "fa-database" },
             { name: "HTML (90%)", level: 90, icon: "fa fa-html5" },
-            { name: "CSS (85)", level: 85, icon: "fa-css3" }
+            { name: "CSS (85%)", level: 85, icon: "fa-css3" },
+            { name: "JS (50%)", level: 85, icon: "fa-css3" }
         ]
     },
     {
-        category: "Frameworks & Tools",
+        category: "Tools",
         skills: [
-            { name: "TensorFlow", level: 85, icon: "fa fa-brain" },
-            { name: "PyTorch", level: 80, icon: "fa-fire" },
-            { name: "Scikit-learn", level: 90, icon: "fa-cogs" },
-            { name: "Docker", level: 75, icon: "fa-docker" }
+            { name: "VS Code", level: 90, icon: "fa fa-brain" },
+            { name: "Spyder", level: 80, icon: "fa-fire" },
+            { name: "Google colab", level: 90, icon: "fa-cogs" },
+            { name: "Microsoft SQL Server", level: 75, icon: "fa-docker" },
+            { name: "Jupyter Notebook", level: 80, icon: "fa-docker" },
+            { name: "Power BI", level: 85, icon: "fa-docker" },
+            { name: "LancsBox X", level: 50, icon: "fa-docker" },
+            { name: "Word", level: 90, icon: "fa-docker" },
+            { name: "Excel", level: 85, icon: "fa-docker" },
+            { name: "Power Point", level: 80, icon: "fa-docker" }
         ]
     }
 ];
@@ -170,7 +187,7 @@ function renderProjects(category = 'all') {
                         <i class="fab fa-github"></i> Code
                     </a>
                     <a href="${project.demo}" class="btn btn-secondary">
-                        <i class="fas fa-external-link-alt"></i> Demo
+                        <i class="fab fa-linkedin" ></i> Linkedin
                     </a>
                 </div>
             </div>
@@ -190,6 +207,8 @@ filterButtons.forEach(button => {
         renderProjects(category);
     });
 });
+
+
 
 // Render Skills
 function renderSkills() {
@@ -324,3 +343,4 @@ tooltips.forEach(tooltip => {
         }
     });
 });
+
