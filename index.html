@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+
+    <!-- Icons & Animation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
+
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
@@ -16,17 +22,16 @@
 
     <!-- Header -->
     <header class="header">
-        
         <div class="container">
             <nav class="nav">
                 <div class="logo">
                     <a href="#home">Portfolio</a>
                 </div>
+
                 <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </div>
+
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -39,129 +44,81 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
+
                 <div class="hero-text">
                     <h1>Sandeepa Sineth</h1>
-                    <h2>Passionate about Data Science </h2>
-                    <p>Udergraduate, BSc in Applied Datasciens and Communication in General Sir John Kotelawala Defence University.</p>
+                    <h2>Passionate about Data Science</h2>
+                    <p>Undergraduate, BSc in Applied Data Science and Communication at General Sir John Kotelawala Defence University.</p>
+
                     <div class="hero-buttons">
                         <a href="Files/Sandeepa_Sineth_CV.pdf" class="btn btn-primary" target="_blank">Download CV</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
+
                 <div class="hero-image">
                     <img src="Images/img1.jpeg" alt="Profile Image">
                 </div>
-            </div>
-        </div>
-        
-    </section>
-    <!--<section class="background_animation">
-        <div class="bubbles-container">
-            <div class="bubbles">
-                <span style='--i:11;'></span>
-                <span style='--i:10;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:05;'></span>
-                <span style='--i:25;'></span>
-                <span style='--i:30;'></span>
-                <span style='--i:06;'></span>
-                <span style='--i:13;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:17;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:01;'></span>
-                <span style='--i:24;'></span>
-                <span style='--i:16;'></span>
-                <span style='--i:19;'></span>
-                <span style='--i:07;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:12;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:11;'></span>
-                <span style='--i:10;'></span>
-                <span style='--i:20;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:05;'></span>
-                <span style='--i:25;'></span>
-                <span style='--i:30;'></span>
-                <span style='--i:06;'></span>
-                <span style='--i:13;'></span>
-                <span style='--i:24;'></span>
-                <span style='--i:16;'></span>
-                <span style='--i:19;'></span>
-                <span style='--i:07;'></span>
-                <span style='--i:15;'></span>
-                <span style='--i:12;'></span>
-                <span style='--i:21;'></span>
-                <span style='--i:11;'></span>
-            </div>
-        </div>
-    </section>-->
 
-    <!-- About Section -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>About Me</h2>
-                <br>
             </div>
+
             <div class="about-content">
-                <!--<div class="about-image" data-aos="fade-right">
-                    <img src="Images/img.jpeg" alt="About Image">
-                </div>-->
+
                 <div class="about-me-table" data-aos="fade-right">
                     <li><span>Experience:</span> 3 years degree</li>
                     <li><span>Country:</span> Sri Lanka</li>
-                    <li><span>Avability:</span> 24/7 </li>
+                    <li><span>Availability:</span> 24/7</li>
                     <li><span>Completed Projects:</span> 20+</li>
-                    <li><span>Age :</span> 23</li>
-                    <li><span>Certificates :</span>30+</li>
-                    <li><span>Languages:</span>Sinhala, English</li>
-                    <li><span>Degree :</span> BSc in Applied Data Science Communication</li>
+                    <li><span>Age:</span> 23</li>
+                    <li><span>Certificates:</span> 30+</li>
+                    <li><span>Languages:</span> Sinhala, English</li>
+                    <li><span>Degree:</span> BSc in Applied Data Science Communication</li>
                 </div>
 
                 <div class="about-text" data-aos="fade-left">
-                    <h3>Undergraduate at KDU</h3><br>
-                    <p>As a data science undergraduate at <span class="uni">General Sir John Kotelawala Defence University</span>, I was learning to develop machine learning models and extract data-driven insights to support decision-making. My focus includes predictive modeling, statistical analysis, and data visualization.</p>
-                    <!--<div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-text">Projects Completed</span>
-                        </div>
-                        
-                        <div class="stat">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-text">Certificates</span>
-                        </div>
-                    </div>-->
+                    <h3>Undergraduate at KDU</h3>
+                    <p>As a data science undergraduate at General Sir John Kotelawala Defence University, I develop machine learning models and extract data-driven insights for decision-making. My focus includes predictive modeling, statistical analysis, and data visualization.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->  
+    <!-- Education -->
     <section id="education" class="education">
         <h2 class="section-header">Education Journey</h2>
+
         <div class="timeline">
+
             <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-content">
                     <h3>Grade 01 - 05</h3>
-                    <p>Kengalla Primery School</p>
+                    <p>Kengalla Primary School</p>
                     <span>2007 - 2011</span>
                 </div>
             </div>
+
             <div class="timeline-item right" data-aos="fade-left">
                 <div class="timeline-content">
-                    <h3>Upto Advanced Level (Technology Stream)</h3>
-                    <p>Walala A Rathnayake Central Collage</p>
+                    <h3>Advanced Level (Technology)</h3>
+                    <p>Walala A Rathnayake Central College</p>
                     <span>2012 - 2021</span>
                 </div>
             </div>
+
             <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-content">
                     <h3>Certificate Course in English</h3>
@@ -169,47 +126,48 @@
                     <span>2019</span>
                 </div>
             </div>
+
             <div class="timeline-item right" data-aos="fade-left">
                 <div class="timeline-content">
-                    <h3>BSc in Applied Data Science and Communication</h3>
+                    <h3>BSc Applied Data Science & Communication</h3>
                     <p>General Sir John Kotelawala Defence University</p>
                     <span>2023 - 2025</span>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Projects</h2>
-                <p>Showcasing my some work</p>
+                <p>Showcasing my work</p>
             </div>
 
             <div class="projects-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ml">Machine Learning</button>
-                <button class="filter-btn" data-filter="python">Python</button>
-                <button class="filter-btn" data-filter="visualization">Visualization</button>
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Machine Learning</button>
+                <button class="filter-btn">Python</button>
+                <button class="filter-btn">Visualization</button>
             </div>
 
-            <div class="projects-grid">
-                <!-- Project Cards will be dynamically added via JavaScript -->
-            </div>
+            <div class="projects-grid"></div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Technical Skills</h2>
-                <p>My technical expertise</p>
             </div>
+
             <div class="skills-content">
                 <div class="skills-category" data-aos="fade-up">
                     <h3>Languages</h3>
+
                     <div class="skills-grid">
                         <div class="skill-item">
                             <div class="skill-icon">
@@ -220,66 +178,78 @@
                                 <div class="progress" data-progress="95"></div>
                             </div>
                         </div>
-                        <!-- More skill items will be added via JavaScript -->
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT (Formspree Updated) -->
     <section id="contact" class="contact">
         <div class="container">
+
             <div class="section-header" data-aos="fade-up">
                 <h2>Get in Touch</h2>
                 <p>Let's work together</p>
             </div>
+
             <div class="contact-content">
+
+                <!-- Info -->
                 <div class="contact-info" data-aos="fade-right">
+
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:Sandeepasinet@gmail.com">Sandeepasinet@gmail.com</a><br><a href="mailto:40-adc-0030@kdu.ac.lk">40-adc-0030@kdu.ac.lk</a></p>
+                        <p>
+                            <a href="mailto:Sandeepasinet@gmail.com">Sandeepasinet@gmail.com</a><br>
+                            <a href="mailto:40-adc-0030@kdu.ac.lk">40-adc-0030@kdu.ac.lk</a>
+                        </p>
                     </div>
+
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <h3>Phone</h3>
-                        <p>+94 78 114 9827 <br>+94 76 073 2714</p>
+                        <p>+94 78 114 9827<br>+94 76 073 2714</p>
                     </div>
+
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Location</h3>
-                        <p>No: 6/3,<br>Aswalapitiya, <br>Kengalla, <br>Kandy, Sri Lanka</p>
+                        <p>No: 6/3, Aswalapitiya, Kengalla, Kandy, Sri Lanka</p>
                     </div>
+
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/sandeepa-sineth-186213288/" class="social-link"><i class="fab fa-linkedin" ></i></a>
+                        <a href="https://www.linkedin.com/in/sandeepa-sineth-186213288/" class="social-link"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Sandeepasineth" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="https://www.facebook.com/sandeepa.sineth" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/sandeepasineth?igsh=YnFpcWdiZTdzOW4w" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/sandeepasineth" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
+
                 </div>
+
+                <!-- Formspree Form -->
                 <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm" action="https://formspree.io/f/mvgkwlrj" method="POST">
-                        
-                        <!-- <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name.</label>
-                        </div> -->
+                    <form action="https://formspree.io/f/mvgkwlrj" method="POST">
+
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Your Email</label>
+                            <input type="email" name="email" required>
+                            <label>Your Email</label>
                         </div>
-                        <!-- <div class="form-group">
-                            <input type="text" id="subject" required>
-                            <label for="subject">Subject</label>
-                        </div> -->
+
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="3" required></textarea>
-                            <label for="message">Your Message</label>
+                            <textarea name="message" rows="3" required></textarea>
+                            <label>Your Message</label>
                         </div>
-                        <center><button type="submit" class="submit">Send Message</button></center>
+
+                        <center>
+                            <button type="submit" class="submit">Send Message</button>
+                        </center>
+
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
@@ -287,20 +257,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 Sandeepa Sineth. All rights reserved.</p>
-            </div>
+            <p>&copy; 2025 Sandeepa Sineth. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll Top -->
     <button id="scrollToTop" class="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
